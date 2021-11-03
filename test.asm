@@ -1,0 +1,12 @@
+  INP
+  STO 50
+  INP
+  STO 51
+  BZE X
+  ADD 50
+  OUT
+  BRA Y
+X LOD 50
+  ADD 50
+Y STO 52
+  HLT
