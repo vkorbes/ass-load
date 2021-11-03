@@ -1,0 +1,46 @@
+# One-Pass M=1024 N=16
+
+The test file has been modified to include repeat references to the same label, to test the symbol table linked list functionality (see schematic on p.29).
+
+Only tested with the supplied test code so far, but the built object seems accurate.
+
+Example of a test run:
+
+```
+ellen@twelve project_1-1_one-pass_m1024_n16 % go run main.go test-with-repeats.asm 
+00 - 000111 0000000000	[INP]
+01 - 000010 0000110010	[STO 50]
+02 - 000111 0000000000	[INP]
+03 - 000010 0000110011	[STO 51]
+04 - 000100 0000000000	[BZE X]
+05 - 000100 0000000100	[BZE X]
+06 - 000100 0000000101	[BZE X]
+07 - 000011 0000110010	[ADD 50]
+08 - 001000 0000000000	[OUT]
+09 - 000110 0000000000	[BRA Y]
+10 - 000110 0000001001	[BRA Y]
+11 - 000001 0000110010	[X LOD 50]
+12 - 000011 0000110010	[ADD 50]
+13 - 000010 0000110100	[Y STO 52]
+14 - 000000 0000000000	[HLT]
+
+Symbol table:
+X 	 11 	 D
+Y 	 13 	 D
+
+Object:
+00 - 000111 0000000000
+01 - 000010 0000110010
+02 - 000111 0000000000
+03 - 000010 0000110011
+04 - 000000 0000001011
+05 - 000000 0000001011
+06 - 000000 0000001011
+07 - 000011 0000110010
+08 - 001000 0000000000
+09 - 000000 0000001101
+10 - 000000 0000001101
+11 - 000001 0000110010
+12 - 000011 0000110010
+13 - 000010 0000110100
+```
