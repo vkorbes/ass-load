@@ -41,7 +41,7 @@ var memory [1024]uint16 // uint16: decimal 0–65535
 var locationCounter int
 
 func main() {
-	if len(os.Args) > 2 {
+	if len(os.Args) > 3 {
 		log.Fatal("Program requires at least one argument, indicating the source file.")
 	}
 	file, err := os.Open(os.Args[1])
