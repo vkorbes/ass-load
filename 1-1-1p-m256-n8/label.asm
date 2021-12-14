@@ -1,0 +1,4 @@
+INP
+BZE A
+A STO 50
+INP
